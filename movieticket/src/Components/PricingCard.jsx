@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { IoCalendar } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { FiMinusSquare, FiPlusSquare } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const PricingCard = () => {
   const [quantity, setQuantity] = useState(1);
   const [ticketPrice, setTicketPrice] = useState(400); // Initial ticket price
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Update the ticket price based on the quantity
@@ -22,6 +24,11 @@ const PricingCard = () => {
     if (quantity < 10) {
       setQuantity(quantity + 1);
     }
+  };
+
+  const handleCheckout = () => {
+    // Navigate to the confirmation page
+    navigate("/ConfirmationPage");
   };
 
   return (
@@ -57,7 +64,7 @@ const PricingCard = () => {
           </button>
         </div>
       </div>
-      <button className="mt-4 min-w-full bg-primary hover:bg-[#cb3f4f] text-white font-semibold py-2 px-4 rounded">Check out for {ticketPrice.toFixed(2)}</button>
+      <button onClick={handleCheckout} className="mt-4 min-w-full bg-primary hover:bg-[#cb3f4f] text-white font-semibold py-2 px-4 rounded">Check out for {ticketPrice.toFixed(2)}</button>
     </div>
   );
 };
