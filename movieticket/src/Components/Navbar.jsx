@@ -3,7 +3,7 @@ import { BiMoviePlay } from "react-icons/bi";
 
 const Navbar = () => {
   return (
-    <div className="flex mx-32 my-4 justify-between">
+    <div className="flex mx-44 my-4 justify-between">
       <div className="flex gap-24">
         <div className="flex items-center gap-1">
           <BiMoviePlay size={24} />

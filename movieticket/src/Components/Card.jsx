@@ -26,11 +26,11 @@ const Card = ({ movieId }) => {
 
   return (
     <Link to={`/movie/${movieId}`}>
-    <div>
+    <div className="w-56">
       <img
         src={movieDetails.Poster}
         alt={movieDetails.Title}
-        className="w-60 h-80"
+        className="w-60 h-80 object-cover"
       ></img>
       <div className="mt-4">
         <span className="flex justify-between">

@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <div className="flex mx-32 my-20 gap-20">
+      <div className="flex mx-44 my-20 gap-20">
         {movieIds.map((id) => (
           <Card key={id} movieId={id} />
         ))}
