@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="flex gap-24">
         <div className="flex items-center gap-1">
           <BiMoviePlay size={24} />
-          <h1 className="text-xl font-medium">BookMyMovie</h1>
+          <h1 className="text-xl font-medium">Cineflix Movies</h1>
         </div>
           <ul className="flex font-medium gap-8 items-center cursor-pointer">
             <li>Home</li>

@@ -3,11 +3,24 @@ import { IoCalendar } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { FiMinusSquare, FiPlusSquare } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import useStore from "../store";
 
 const PricingCard = () => {
   const [quantity, setQuantity] = useState(1);
   const [ticketPrice, setTicketPrice] = useState(400); // Initial ticket price
   const navigate = useNavigate();
+  const { id } = useParams();
+  const { setTotalPrice, setTicketCount } = useStore();
+
+  useEffect(() => {
+    setTicketCount(quantity);
+  }, [quantity]);
+
+  useEffect(() => {
+    setTotalPrice(ticketPrice);
+  }, [ticketPrice]);
+
 
   useEffect(() => {
     // Update the ticket price based on the quantity
@@ -28,7 +41,7 @@ const PricingCard = () => {
 
   const handleCheckout = () => {
     // Navigate to the confirmation page
-    navigate("/ConfirmationPage");
+    navigate(`/ConfirmationPage/${id}`);
   };
 
   return (
@@ -64,7 +77,12 @@ const PricingCard = () => {
           </button>
         </div>
       </div>
-      <button onClick={handleCheckout} className="mt-4 min-w-full bg-primary hover:bg-[#cb3f4f] text-white font-semibold py-2 px-4 rounded">Check out for {ticketPrice.toFixed(2)}</button>
+      <button
+        onClick={handleCheckout}
+        className="mt-4 min-w-full bg-primary hover:bg-[#cb3f4f] text-white font-semibold py-2 px-4 rounded"
+      >
+        Check out for {ticketPrice.toFixed(2)}
+      </button>
     </div>
   );
 };

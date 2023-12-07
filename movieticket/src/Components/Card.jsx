@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ movieId }) => {
   const [movieDetails, setMovieDetails] = useState(null);
-
+ 
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -26,20 +26,20 @@ const Card = ({ movieId }) => {
 
   return (
     <Link to={`/movie/${movieId}`}>
-    <div className="w-56">
-      <img
-        src={movieDetails.Poster}
-        alt={movieDetails.Title}
-        className="w-60 h-80 object-cover"
-      ></img>
-      <div className="mt-4">
-        <span className="flex justify-between">
-          <p className="font-semibold">{movieDetails.Title}</p>
-          <p className="text-sm font-semibold">{movieDetails.Year}</p>
-        </span>
-        <p className="text-sm mt-1">{movieDetails.Genre}</p>
+      <div className="w-56">
+        <img
+          src={movieDetails.Poster}
+          alt={movieDetails.Title}
+          className="w-60 h-80 object-cover"
+        ></img>
+        <div className="mt-4">
+          <span className="flex justify-between">
+            <p className="font-semibold">{movieDetails.Title}</p>
+            <p className="text-sm font-semibold">{movieDetails.Year}</p>
+          </span>
+          <p className="text-sm mt-1">{movieDetails.Genre}</p>
+        </div>
       </div>
-    </div>
     </Link>
   );
 };
