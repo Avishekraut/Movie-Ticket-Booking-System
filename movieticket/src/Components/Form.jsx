@@ -15,7 +15,6 @@ const Form = () => {
   };
   const [formData, setFormData] = useState({ initialValues });
   const { movieDetail, ticketCount, totalPrice } = useStore();
-  console.log(ticketCount);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +24,7 @@ const Form = () => {
     });
   };
 
-  const generatePDF = (formData, movieDetails, ticketCount, totalPrice) => {
+  const generatePDF = (formData) => {
     const pdf = new jsPDF();
 
     const title = [["Ticket Invoice "]];
@@ -92,8 +91,6 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form Data:", formData);
     generatePDF(formData);
   };
 
